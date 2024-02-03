@@ -15,6 +15,7 @@ function Bollywood(props) {
     var topBolly = arr.filter((data)=>data.category==="topBollywood").map((ele,index)=>{return ele})
     var count=1;
     console.log(topBolly)
+    
     return (
         <>
        
@@ -58,14 +59,28 @@ function Bollywood(props) {
         <div className='postcards'>
             <h1>Top Posts</h1>
             
-          
+            {
+                topBolly?.filter((blog, index) => index === 0).map((blog, index) => {
+                  return <div >
+                    <img src={blog.imgurl} alt="Poster"  style={{width:'100%',height:'10%'}}/>
+                    {/* <div className="latestBlogDescBox">
+                      <Link to={`/${blog.blogCategory}/${blog.BlogId}`} className="latestBlogTitle">
+                        {blog.blogTitle.slice(0, 70)}...
+                      </Link>
+                      <p className="categoryWithDateox">
+                        {blog.blogCategory} :  {blog.blogDate}
+                      </p>
+                    </div> */}
+                  </div>
+                })
+              }
             
             {
-
+                
                 arr.filter((data)=>data.category==="topBollywood").map((ele,index) =>{
                     return(
-                    <>
-            <img src={topBolly[0].imgurl} style={{width:'100%',height:'10%'}}/>
+                        <>
+                        {/* <img src={topBolly[0].imgurl} style={{width:'100%',height:'10%'}}/> */}
             <p><hr /></p>
                     <Link to={`/details/${ele.id}`} style={{textDecoration:'none'}}>
                     <div style={{borderBottom:'2px solid darkmagenta', marginBottom:'10px'}}>
@@ -93,7 +108,7 @@ function Bollywood(props) {
             })
             }
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReiK3wTmdw7C3LsldaW_gAr7c5pW8PP7XitLrLXYFK3jKQhvGM2VyhyF9l9MDM_-_TxNs&usqp=CAU" className='iphonead'/>
-                    <img src="https://www.onlinejournal.live/watch/blog/info/english/latest/images/2.png?v=1604383537" className='iphonead'/>
+                    <img src="https://i.gadgets360cdn.com/large/reliance_disney_large_1703501047395.jpg?downsize=950:*" className='iphonead'/>
                     <img src="https://gumlet.assettype.com/Prabhatkhabar/2023-10/76b4a013-067f-4851-86af-7f6909606045/What_is_Reliance_JioSpaceFiber__1_.jpg" className='iphonead'/>
                     <img src="https://images.moneycontrol.com/static-mcnews/2023/10/META-TT-770x433.jpg?impolicy=website&width=400&height=225" className='iphonead'/>
         </div>
